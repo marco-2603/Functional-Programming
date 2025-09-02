@@ -55,6 +55,13 @@ fun insertAll (_ , nil) = nil
 (* insertAll (1,[[2,3],[],[3]]); *)
 (* val it = [[1, 2, 3], [1], [1, 3]]: int list list *)
 
+(* Es 4.11 - Prodotto differenze *)
+fun proDiff1 (_,nil)= 1.0
+  | proDiff1 (a,b::bs) = (a-b) * proDiff1(a,bs);
+
+fun proDiff (nil) = 1.0
+  | proDiff (b::bs) = proDiff1(b,bs) * proDiff(bs);
+
 (* Es 4.12 - Pattern matching con case *)
 val is_one = fn n => case n of
     1 => "is one"
